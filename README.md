@@ -1,9 +1,9 @@
-# Attention Telemetry — full-stack
+# Attention Telemetry - full-stack
 
 Real-time attention telemetry from face landmarks. Vision runs **client-side**
 (MediaPipe Face Landmarker, WASM); the backend handles **session persistence,
 WebSocket telemetry ingestion (5 Hz), and analytics**. No video ever leaves
-the browser — only derived numeric features are stored.
+the browser - only derived numeric features are stored.
 
 ## Architecture
 
@@ -43,12 +43,12 @@ attention-drop bands, and summary stats.
 
 ## Where things live
 
-- `frontend/src/lib/attention.js` — the entire CV core (the file to show in
+- `frontend/src/lib/attention.js` - the entire CV core (the file to show in
   a code walkthrough): landmark indices, EAR blink detection with hysteresis,
   iris-offset gaze, head pose from the transform matrix, rolling-window
   stats, weighted fusion, EMA smoothing. All tunables in one `CFG` block.
-- `frontend/src/lib/api.js` — REST client + 5 Hz throttled WebSocket stream.
-- `backend/main.py` — FastAPI: sessions CRUD, WS ingest with batched writes,
+- `frontend/src/lib/api.js` - REST client + 5 Hz throttled WebSocket stream.
+- `backend/main.py` - FastAPI: sessions CRUD, WS ingest with batched writes,
   per-session summary incl. server-side attention-drop event detection.
 
 ## Scope honesty
